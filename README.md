@@ -8,10 +8,11 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 
 **Uma aplicação moderna e completa de gerenciamento de tarefas**
 
-[Sobre](#-sobre) • [Funcionalidades](#-funcionalidades) • [Tecnologias](#-tecnologias) • [Instalação](#-instalação) • [Uso](#-uso) • [Docker](#-docker-compose) • [Autor](#-autor)
+[Sobre](#-sobre) • [Funcionalidades](#-funcionalidades) • [Tecnologias](#-tecnologias) • [Instalação](#-instalação) • [Uso](#-uso) • [Docker](#-docker-compose) • [API](#-documentação-da-api) • [Autor](#-autor)
 
 </div>
 
@@ -32,6 +33,7 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - ✅ **Validação** - Zod para validação de dados robusta
 - 🐳 **Docker Compose** - Configuração simplificada do banco de dados
 - 🧪 **Testes** - Testes end-to-end no backend com Jest
+- 📚 **Documentação da API** - Documentação interativa da API com Swagger
 
 ---
 
@@ -113,6 +115,7 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - **Prisma ORM** - ORM moderno para Node.js
 - **JWT** - Autenticação via JSON Web Tokens
 - **Docker Compose** - Containerização do banco de dados
+- **Swagger** - Documentação interativa da API
 - **Jest** - Testes end-to-end
 
 ### Frontend
@@ -295,19 +298,23 @@ todo/
 │   │   └── main.ts        # Entry point
 │   ├── prisma/
 │   │   └── schema.prisma  # Schema do banco de dados
+│   ├── docker-compose.yml
 │   └── package.json
 │
-└── frontend/
-    ├── src/
-    │   ├── components/    # Componentes React
-    │   ├── contexts/      # Context API (Auth, Toast)
-    │   ├── hooks/         # Custom hooks
-    │   ├── lib/           # Configurações (axios, toast)
-    │   ├── models/        # Tipos TypeScript
-    │   ├── pages/         # Páginas da aplicação
-    │   ├── schemas/       # Schemas Zod
-    │   └── styles/        # Estilos globais
-    └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/    # Componentes React
+│   │   ├── contexts/      # Context API (Auth, Toast)
+│   │   ├── hooks/         # Custom hooks
+│   │   ├── lib/           # Configurações (axios, toast)
+│   │   ├── models/        # Tipos TypeScript
+│   │   ├── pages/         # Páginas da aplicação
+│   │   ├── schemas/       # Schemas Zod
+│   │   └── styles/        # Estilos globais
+│   └── package.json
+│
+├── api-documentation.yml  # Collection Insomnia/Postman
+└── README.md
 ```
 
 ---
@@ -337,23 +344,45 @@ todo/
 
 ---
 
-## 🔐 API Endpoints
+## 📚 Documentação da API
 
-### Autenticação
+### 🔷 Swagger UI
 
-```http
-POST /auth/register
-POST /auth/login
-```
+A API está **totalmente documentada** com **Swagger/OpenAPI**. Após iniciar o backend, acesse:
 
-### Tarefas (Requer autenticação)
+**🌐 URL:** `http://localhost:3333/api/docs`
 
-```http
-GET    /tasks          # Listar todas as tarefas
-POST   /tasks          # Criar nova tarefa
-PATCH  /tasks/:id      # Atualizar tarefa
-DELETE /tasks/:id      # Deletar tarefa
-```
+![Swagger](https://img.shields.io/badge/Swagger-Documentação_Interativa-85EA2D?style=flat-square&logo=swagger&logoColor=black)
+
+#### Recursos do Swagger:
+- ✅ **Explorar** todos os endpoints disponíveis
+- ✅ **Testar** requisições diretamente no navegador
+- ✅ **Visualizar** schemas de request/response
+- ✅ **Autenticar** com JWT e testar rotas protegidas
+- ✅ **Validar** payloads antes de implementar no frontend
+- ✅ **Exportar** especificação OpenAPI
+
+> 💡 **Dica**: Use o botão "Authorize" no Swagger para adicionar seu token JWT e testar as rotas protegidas!
+
+### 📦 Importar no Insomnia/Postman
+
+O projeto inclui um arquivo de collection para facilitar os testes:
+
+**Arquivo:** `api-documentation.yml`
+
+#### Importar no Insomnia:
+1. Abra o Insomnia
+2. Clique em **Application** → **Preferences** → **Data**
+3. Clique em **Import Data** → **From File**
+4. Selecione o arquivo `api-documentation.yml`
+5. Pronto! Todos os endpoints estarão disponíveis
+
+#### Importar no Postman:
+1. Abra o Postman
+2. Clique em **Import** no canto superior esquerdo
+3. Selecione o arquivo `api-documentation.yml`
+4. Clique em **Import**
+5. A collection estará pronta para uso
 
 ---
 
