@@ -1,0 +1,112 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: var(--gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12.5rem;
+}
+
+.formWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 28rem;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  border-radius: 0.5rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form h1 {
+  color: var(--blue);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.inputGroup input {
+  height: 3.375rem;
+  color: var(--gray-100);
+  background: var(--gray-600);
+  border: 1px solid var(--gray-700);
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.inputGroup input::placeholder {
+  color: var(--gray-300);
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: var(--purple-dark);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.75rem;
+  margin-top: -0.25rem;
+}
+
+.submitButton {
+  height: 3.375rem;
+  background: var(--blue-dark);
+  color: var(--gray-100);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.submitButton:hover {
+  background: var(--blue);
+}
+
+.link {
+  text-align: center;
+  color: var(--gray-300);
+  font-size: 0.875rem;
+}
+
+.link a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.link a:hover {
+  color: var(--purple);
+}
