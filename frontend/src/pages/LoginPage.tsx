@@ -17,7 +17,7 @@ export function LoginPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   })
@@ -83,8 +83,12 @@ export function LoginPage() {
             )}
           </div>
 
-          <button type="submit" className={styles.submitButton}>
-            Entrar
+          <button
+            type="submit"
+            className={styles.submitButton}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Entrando...' : 'Entrar'}
           </button>
 
           <p className={styles.link}>

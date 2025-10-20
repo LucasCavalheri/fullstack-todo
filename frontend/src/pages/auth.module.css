@@ -94,6 +94,10 @@
   background: var(--blue);
 }
 
+.submitButton:disabled {
+  background: var(--gray-400);
+}
+
 .link {
   text-align: center;
   color: var(--gray-300);

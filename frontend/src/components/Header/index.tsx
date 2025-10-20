@@ -7,9 +7,10 @@ import { toast } from '../../lib/toast'
 
 interface HeaderProps {
   onAddTask: (taskTitle: string) => void
+  isPendingCreateTask: boolean
 }
 
-export function Header({ onAddTask }: HeaderProps) {
+export function Header({ onAddTask, isPendingCreateTask }: HeaderProps) {
   const [title, setTitle] = useState('')
   const { user, logout } = useAuth()
 
@@ -54,9 +55,15 @@ export function Header({ onAddTask }: HeaderProps) {
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
-        <button>
-          Criar
-          <AiOutlinePlusCircle size={20} />
+        <button disabled={title.length <= 0 || isPendingCreateTask}>
+          {isPendingCreateTask ? (
+            'Criando...'
+          ) : (
+            <>
+              Criar
+              <AiOutlinePlusCircle size={20} />
+            </>
+          )}
         </button>
       </form>
     </header>

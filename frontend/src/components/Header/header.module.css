@@ -113,3 +113,8 @@
   font-weight: 700;
   font-size: 0.875rem;
 }
+
+.newTaskForm button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

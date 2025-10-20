@@ -8,7 +8,7 @@ import { useUpdateTask } from '../hooks/tasks/use-update-task'
 
 export function HomePage() {
   const { data: tasks, isLoading: isLoadingTasks } = useListTasks()
-  const { mutateAsync: createTaskMutate } = useCreateTask()
+  const { mutateAsync: createTaskMutate, isPending: isPendingCreateTask } = useCreateTask()
   const { mutateAsync: deleteTaskMutate } = useDeleteTask()
   const { mutateAsync: updateTaskMutate } = useUpdateTask()
 
@@ -26,7 +26,7 @@ export function HomePage() {
 
   return (
     <>
-      <Header onAddTask={addTask} />
+      <Header onAddTask={addTask} isPendingCreateTask={isPendingCreateTask} />
       {isLoadingTasks ? (
         <TasksSkeleton />
       ) : (

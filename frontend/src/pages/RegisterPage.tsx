@@ -7,18 +7,46 @@ import {
   type RegisterSchema,
 } from '../schemas/auth/register-schema'
 import styles from './auth.module.css'
+import { isAxiosError } from 'axios'
+import { useToast } from '../contexts/ToastContext'
+import { useAuth } from '../contexts/AuthContext'
 
 export function RegisterPage() {
+  const { register: registerUser } = useAuth()
+
+  const toast = useToast()
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<RegisterSchema>({
     resolver: zodResolver(registerSchema),
   })
 
-  function onSubmit(data: RegisterSchema) {
-    console.log(data)
+  async function onSubmit(data: RegisterSchema) {
+    try {
+      await registerUser(data)
+
+      toast.success({
+        title: 'Cadastro realizado com sucesso',
+      })
+    } catch (error) {
+      if (isAxiosError(error)) {
+        if (error.status === 409) {
+          return toast.error({
+            title: 'Erro ao cadastrar',
+            description: error.response?.data.message,
+          })
+        }
+
+        return toast.error({
+          title: 'Erro ao cadastrar',
+          description:
+            'Ocorreu um erro ao cadastrar. Por favor, tente novamente.',
+        })
+      }
+    }
   }
 
   return (
@@ -70,8 +98,12 @@ export function RegisterPage() {
             )}
           </div>
 
-          <button type="submit" className={styles.submitButton}>
-            Cadastrar
+          <button
+            type="submit"
+            className={styles.submitButton}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Cadastrando...' : 'Cadastrar'}
           </button>
 
           <p className={styles.link}>
