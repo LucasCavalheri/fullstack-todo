@@ -8,9 +8,9 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { AuthService } from './auth.service';
 import { RegisterDTO } from './dto/register.dto';
-import type { Response } from 'express';
 import { LoginDTO } from './dto/login.dto';
 import { JwtAuthGuard } from './jwt.guard';
 import {
