@@ -63,7 +63,6 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - ✅ Saudação personalizada ao usuário
 - ✅ Estados de loading e erro tratados
 
-
 ### 📝 Testes
 
 - ✅ Testes end-to-end no backend com Jest
@@ -100,6 +99,10 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
       <img src="https://skillicons.dev/icons?i=docker" width="48" height="48" alt="Docker" />
       <br>Docker
     </td>
+        <td align="center" width="96">
+      <img src="https://skillicons.dev/icons?i=jest" width="48" height="48" alt="Jest" />
+      <br>Jest
+    </td>
   </tr>
 </table>
 
@@ -110,6 +113,7 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - **Prisma ORM** - ORM moderno para Node.js
 - **JWT** - Autenticação via JSON Web Tokens
 - **Docker Compose** - Containerização do banco de dados
+- **Jest** - Testes end-to-end
 
 ### Frontend
 
@@ -131,10 +135,6 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
       <img src="https://skillicons.dev/icons?i=vite" width="48" height="48" alt="Vite" />
       <br>Vite
     </td>
-    <td align="center" width="96">
-      <img src="https://skillicons.dev/icons?i=jest" width="48" height="48" alt="Jest" />
-      <br>Jest
-    </td>
   </tr>
 </table>
 
@@ -146,7 +146,6 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - **React Query** - Gerenciamento de estado assíncrono
 - **Zod** - Validação de schemas TypeScript-first
 - **React Hook Form** - Gerenciamento de formulários
-- **Jest** - Testes end-to-end
 
 ---
 
