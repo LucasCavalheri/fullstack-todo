@@ -31,6 +31,7 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - 🔔 **Notificações** - Sistema de toast para feedback ao usuário
 - ✅ **Validação** - Zod para validação de dados robusta
 - 🐳 **Docker Compose** - Configuração simplificada do banco de dados
+- 🧪 **Testes** - Testes end-to-end no backend com Jest
 
 ---
 
@@ -61,6 +62,11 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - ✅ Sistema de notificações toast
 - ✅ Saudação personalizada ao usuário
 - ✅ Estados de loading e erro tratados
+
+
+### 📝 Testes
+
+- ✅ Testes end-to-end no backend com Jest
 
 ---
 
@@ -125,6 +131,10 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
       <img src="https://skillicons.dev/icons?i=vite" width="48" height="48" alt="Vite" />
       <br>Vite
     </td>
+    <td align="center" width="96">
+      <img src="https://skillicons.dev/icons?i=jest" width="48" height="48" alt="Jest" />
+      <br>Jest
+    </td>
   </tr>
 </table>
 
@@ -136,6 +146,7 @@ O **To-Do App** é uma aplicação full-stack robusta para gerenciamento de tare
 - **React Query** - Gerenciamento de estado assíncrono
 - **Zod** - Validação de schemas TypeScript-first
 - **React Hook Form** - Gerenciamento de formulários
+- **Jest** - Testes end-to-end
 
 ---
 
@@ -182,7 +193,7 @@ npx prisma studio
 npm run start:dev
 ```
 
-O backend estará rodando em `http://localhost:3000`
+O backend estará rodando em `http://localhost:3333`
 
 > 💡 **Dica**: O comando `docker-compose up -d` inicia o PostgreSQL em background. Para parar, use `docker-compose down`
 
