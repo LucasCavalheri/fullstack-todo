@@ -24,7 +24,7 @@ export class AuthService {
     });
 
     if (userAlreadyExists) {
-      throw new ConflictException('Usuário já cadastrado');
+      throw new ConflictException('Email já cadastrado');
     }
 
     const hashedPassword = await bcrypt.hash(body.password, 10);
@@ -55,13 +55,13 @@ export class AuthService {
     });
 
     if (!user) {
-      throw new UnauthorizedException('Usuário ou senha inválidos');
+      throw new UnauthorizedException('Email ou senha inválidos');
     }
 
     const isPasswordValid = await bcrypt.compare(body.password, user.password);
 
     if (!isPasswordValid) {
-      throw new UnauthorizedException('Usuário ou senha inválidos');
+      throw new UnauthorizedException('Email ou senha inválidos');
     }
 
     const token = this.jwt.sign({
@@ -82,7 +82,7 @@ export class AuthService {
     });
 
     if (!user) {
-      throw new UnauthorizedException('Usuário não encontrado');
+      throw new UnauthorizedException('Email não encontrado');
     }
 
     const { password, ...rest } = user;
