@@ -15,12 +15,17 @@ import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import type { Request, Response } from 'express';
 import { JwtAuthGuard } from 'src/auth/jwt.guard';
+import { ApiBearerAuth, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 
 @UseGuards(JwtAuthGuard)
+@ApiTags('Tasks')
+@ApiBearerAuth()
 @Controller('tasks')
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
+  @ApiCreatedResponse({ description: 'Tarefa criada com sucesso' })
+  @ApiUnauthorizedResponse({ description: 'Usuário não autenticado' })
   @Post()
   async create(
     @Body() createTaskDto: CreateTaskDto,
@@ -34,6 +39,8 @@ export class TasksController {
     });
   }
 
+  @ApiOkResponse({ description: 'Tarefas listadas com sucesso' })
+  @ApiUnauthorizedResponse({ description: 'Usuário não autenticado' })
   @Get()
   async findAll(@Req() req: Request, @Res() res: Response) {
     const tasks = await this.tasksService.findAll(req.user?.userId!);
@@ -44,6 +51,9 @@ export class TasksController {
     });
   }
 
+  @ApiOkResponse({ description: 'Tarefa encontrada com sucesso' })
+  @ApiUnauthorizedResponse({ description: 'Usuário não autenticado' })
+  @ApiNotFoundResponse({ description: 'Tarefa não encontrada' })
   @Get(':id')
   async findOne(
     @Param('id') id: string,
@@ -58,6 +68,9 @@ export class TasksController {
     });
   }
 
+  @ApiOkResponse({ description: 'Tarefa atualizada com sucesso' })
+  @ApiUnauthorizedResponse({ description: 'Usuário não autenticado' })
+  @ApiNotFoundResponse({ description: 'Tarefa não encontrada' })
   @Patch(':id')
   async update(
     @Param('id') id: string,
@@ -72,6 +85,9 @@ export class TasksController {
     });
   }
 
+  @ApiOkResponse({ description: 'Tarefa removida com sucesso' })
+  @ApiUnauthorizedResponse({ description: 'Usuário não autenticado' })
+  @ApiNotFoundResponse({ description: 'Tarefa não encontrada' })
   @Delete(':id')
   async remove(
     @Param('id') id: string,
