@@ -351,12 +351,8 @@ DELETE /tasks/:id      # Deletar tarefa
 
 ```bash
 # Backend
-cd backend
-npm run test
-
-# Frontend
-cd frontend
-npm run test
+cd api
+npm run test:e2e
 ```
 
 ---
