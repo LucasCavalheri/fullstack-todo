@@ -14,3 +14,12 @@ api.interceptors.request.use((config) => {
 
   return config
 })
+
+/* DESCOMENTE PARA FAZER TODAS AS REQUISIÇÕES DEMORAREM 2 SEGUNDOS */
+// api.interceptors.response.use((response) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(response)
+//     }, 2000)
+//   })
+// })

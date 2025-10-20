@@ -1,5 +1,6 @@
 import { Header } from '../components/Header'
 import { Tasks } from '../components/Tasks'
+import { TasksSkeleton } from '../components/TasksSkeleton'
 import { useCreateTask } from '../hooks/tasks/use-create-task'
 import { useDeleteTask } from '../hooks/tasks/use-delete-task'
 import { useListTasks } from '../hooks/tasks/use-list-tasks'
@@ -23,19 +24,19 @@ export function HomePage() {
     await updateTaskMutate({ id: taskId, isCompleted })
   }
 
-  if (isLoadingTasks) {
-    return <div>Carregando...</div>
-  }
-
   return (
     <>
       <Header onAddTask={addTask} />
-      {tasks && (
-        <Tasks
-          tasks={tasks?.tasks}
-          onDelete={deleteTaskById}
-          onComplete={toggleTaskCompletedById}
-        />
+      {isLoadingTasks ? (
+        <TasksSkeleton />
+      ) : (
+        tasks && (
+          <Tasks
+            tasks={tasks?.tasks}
+            onDelete={deleteTaskById}
+            onComplete={toggleTaskCompletedById}
+          />
+        )
       )}
     </>
   )
